@@ -1,19 +1,63 @@
 <?php
-	//$servername = "localhost";
-	//$username = "scaws";
-	//$password = "Isscoste2k";
-	//$db = "dbname";
-	//try {
-	//$conn = new PDO("mysql:host=$servername;dbname=myDB", $username, $password, $db);
-	// set the PDO error mode to exception
-	//$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	//echo "Connected successfully";
-	//}
-	//catch(PDOException $e)
-	//{
-	//echo "Connection failed: " . $e->getMessage();
-	//}
+/*
+include("config.php");
+
+$message = '';
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Define variables and initialize with empty values
+    $name = $email = $username = $password = "";
+    
+    // Processing form data when form is submitted
+    $name = trim($_POST["name"]);
+    $email = trim($_POST["email"]);
+    $username = trim($_POST["username"]);
+    $password = password_hash(trim($_POST["password"]), PASSWORD_DEFAULT);
+    
+    // Prepare an insert statement
+    $sql = "INSERT INTO users (name, email, username, password) VALUES (:name, :email, :username, :password)";
+    
+    if ($stmt = $pdo->prepare($sql)) {
+        // Bind variables to the prepared statement as parameters
+        $stmt->bindParam(":name", $name, PDO::PARAM_STR);
+        $stmt->bindParam(":email", $email, PDO::PARAM_STR);
+        $stmt->bindParam(":username", $username, PDO::PARAM_STR);
+        $stmt->bindParam(":password", $password, PDO::PARAM_STR);
+        
+        // Attempt to execute the prepared statement
+        if ($stmt->execute()) {
+            // Redirect to login page
+            header("location: login.php");
+            exit();
+        } else {
+            echo "Oops! Something went wrong. Please try again later.";
+        }
+    }
+    
+    // Close statement
+    unset($stmt);
+}
+$message = '';
+
+if (isset($_POST['username']) && isset($_POST['password'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $sql = "SELECT * FROM users WHERE username = :username";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['username' => $username]);
+    $user = $stmt->fetch();
+
+    if ($user && password_verify($password, $user['password'])) {
+        session_start();
+        $_SESSION['user_id'] = $user['id'];
+        header('Location: dashboard.php');
+    } else {
+        $message = 'Mauvais identifiants';
+    }
+}*/
 ?>
+
 
 <!DOCTYPE html>
 <html>
