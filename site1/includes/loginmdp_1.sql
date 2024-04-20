@@ -1,6 +1,6 @@
 -- ADDED BY FLS
-CREATE DATABASE IF NOT EXISTS `loginmdp`;
-use loginmdp;
+CREATE DATABASE IF NOT EXISTS `dbmdp`;
+use dbmdp;
 
 -- phpMyAdmin SQL Dump
 -- version 4.5.4.1
@@ -42,9 +42,9 @@ CREATE TABLE `users` (
 -- Contenu de la table `identifiant`
 --
 
-INSERT INTO `identifiant` (`ID`, `login`, `motdepasse`) VALUES
-(22, 'badrelktaibi@gmail.com', 'Rdab400224*'),
-(23, 'zephir@gmail.com', '$2y$10$veJESLpAFfr5kNwVLh6mj.13rHolGSLVl7L5QPzWLaUeCzNGrDyHi');
+INSERT INTO `users` (`name`, `email`, `username`, `password`) VALUES
+('Badrel Ktaibi', 'badrelktaibi@gmail.com', 'badrelktaibi', 'Rdab400224*'),
+('Zephir', 'zephir@gmail.com', 'zephir', '$2y$10$veJESLpAFfr5kNwVLh6mj.13rHolGSLVl7L5QPzWLaUeCzNGrDyHi');
 
 --
 -- Index pour les tables exportées

@@ -1,8 +1,8 @@
 <?php
 $host = 'db';
-$db   = 'auth_systeme';
+$db = 'dbmdp';
 $user = 'scaws';
-$pass = 'Isscoste2k';
+$pass = 'drowssap';
 $port = '3306';
 $charset = 'utf8mb4';
 
@@ -18,4 +18,4 @@ try {
 } catch (\PDOException $e) {
      throw new \PDOException($e->getMessage(), (int)$e->getCode());
 }
-?>
+ ?>
