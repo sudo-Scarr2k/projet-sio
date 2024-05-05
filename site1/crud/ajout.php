@@ -30,7 +30,7 @@
         </form>
     </div>
     <?php
-    require('fonctions.php');
+    require('../includes/fonctions.php');
     connectdb();
     if(isset($_POST['ajouter'])){
     $sql = "INSERT INTO utilisateurs (nom, prenom, adresse, email) VALUES (?,?,?,?)";
@@ -46,7 +46,6 @@
     $rs->execute();
     header("location: index.php");
     }
-    
     ?>
 </body>
 </html>

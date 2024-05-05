@@ -1,6 +1,6 @@
 <?php
 // register.php
-include("config.php");
+include("includes/config.php");
 
 $message = '';
 

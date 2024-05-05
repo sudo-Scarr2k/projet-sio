@@ -1,5 +1,5 @@
 <?php
-require('fonctions.php');
+require('../includes/fonctions.php');
 connectdb();
 if(isset($_GET['id']) && !empty($_GET['id'])) {
     $id = $_GET['id'];

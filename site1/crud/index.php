@@ -18,7 +18,7 @@
                 <th>Supprimer</th>
             </tr>
                 <?php
-                require ('fonctions.php');
+                require ('../includes/fonctions.php');
                 connectdb();
                 $sql = "SELECT * FROM utilisateurs";
                 $rs = connectdb()->prepare($sql);
@@ -27,9 +27,6 @@
                 foreach ($res as $row) {
                     echo "<tr><td>".$row['nom']."</td><td>".$row['prenom']."</td><td>".$row['adresse']."</td><td>".$row['email']."</td><td><a href='modifier.php?id=".$row["id"]."'><img src='modify.png'></a></td><td><a href='supprimer.php?id=".$row['id']."'><img src='delete.png'></a></td></tr>";
                 }
-
-
-
                 ?>
             </tr>
         </table>
