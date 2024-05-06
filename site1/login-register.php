@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     // login.php
     session_start();
 
-    include("config.php");
+    include("includes/config.php");
 
     $message = '';
 
