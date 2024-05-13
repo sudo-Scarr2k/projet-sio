@@ -92,62 +92,84 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
         </nav>
     </div>
 </header>
-
-<div class="wrapper">
-    <span class="icon-close">
-        <ion-icon name="close-outline"></ion-icon>
-    </span>
-
-    <div class="form-box-login">
-        <h2>Login</h2>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <div class="input-box">
-                <span class="icon"><ion-icon name="at-outline"></ion-icon></span>
-                <input type="text" name="username" required>
-                <label>Username</label>
+<main role="main">
+    <div class="login-wrap">
+        <div class="wrapper">
+            <span class="icon-close">
+                <ion-icon name="close-outline"></ion-icon>
+            </span>
+            <div class="form-box-login">
+                <h2>Login</h2>
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="at-outline"></ion-icon></span>
+                        <input type="text" name="username" required>
+                        <label>Username</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                        <input type="password" name="password" required>
+                        <label>Password</label>
+                    </div>
+                    <button type="submit" class="btn" name="login">Login</button>
+                    <div class="login-register">
+                        <p>Don't have an account?<a href="#" class="register-link">Register</a></p>
+                    </div>
+                </form>
             </div>
-            <div class="input-box">
-                <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                <input type="password" name="password" required>
-                <label>Password</label>
+            <div class="form-box-register">
+                <h2>Register</h2>
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="person"></ion-icon></span>
+                        <input type="text" name="name" required>
+                        <label>Full Name</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                        <input type="email" name="email" required>
+                        <label>Email</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="at-outline"></ion-icon></span>
+                        <input type="text" name="username" required>
+                        <label>Username</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                        <input type="password" name="password" required>
+                        <label>Password</label>
+                    </div>
+                    <button type="submit" class="btn" name="register">Register</button>
+                    <div class="register-login">
+                        <p>Already have an account?<a href="#" class="login-link">Login</a></p>
+                    </div>
+                </form>
             </div>
-            <button type="submit" class="btn" name="login">Login</button>
-            <div class="login-register">
-                <p>Don't have an account?<a href="#" class="register-link">Register</a></p>
-            </div>
-        </form>
+        </div>
     </div>
-    <div class="form-box-register">
-        <h2>Register</h2>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <div class="input-box">
-                <span class="icon"><ion-icon name="person"></ion-icon></span>
-                <input type="text" name="name" required>
-                <label>Full Name</label>
+    <div class="content">
+        <div class="main-content">
+            <div class="wrapper-container">
+                <div class="product-container">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class=""></span>
+                            <img src="assets/images/product3.webp" class="product-thumb" alt="">
+                            <button class="card-btn">Add to Cart</button>
+                        </div>
+                        <div class="product-info">
+                            <h2>Lavasan Orange Jubilee</h2>
+                            <p class="product-short-des">Lorem ipsum.</p>
+                            <span class="price">$20</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="input-box">
-                <span class="icon"><ion-icon name="mail"></ion-icon></span>
-                <input type="email" name="email" required>
-                <label>Email</label>
-            </div>
-            <div class="input-box">
-                <span class="icon"><ion-icon name="at-outline"></ion-icon></span>
-                <input type="text" name="username" required>
-                <label>Username</label>
-            </div>
-            <div class="input-box">
-                <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                <input type="password" name="password" required>
-                <label>Password</label>
-            </div>
-            <button type="submit" class="btn" name="register">Register</button>
-            <div class="register-login">
-                <p>Already have an account?<a href="#" class="login-link">Login</a></p>
-            </div>
-        </form>
+        </div>
     </div>
-</div>
-<script src="assets/script.js"></script>
+</main>
+<script src="includes/js/script.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
