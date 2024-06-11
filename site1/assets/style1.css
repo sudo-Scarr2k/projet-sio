@@ -110,28 +110,69 @@ img {
     color: #162938;
 
 }
+
 main{
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    flex: 1;
+    min-height: 90vh;
+    display: block;
     box-sizing: border-box; 
 }
 
 .content {
+    position: relative;
+    top: 100px;
     width: 100%;
     min-height: 100%;
+    justify-content: center;
+    align-items: center;
+
 }
 .main-content {
-    flex: 1;
+    display: flex;
+    flex-direction: column; /* Afficher les éléments en colonne */
+    align-items: center; /* Centrer horizontalement */
     padding: 20px;
+
 }
+
+/* Style pour le conteneur de la pagination */
+.pagination {
+    display: flex; /* Utiliser Flexbox pour la mise en page */
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center; /* Centrer verticalement */
+    margin-top: 20px; /* Ajouter un espace au-dessus */
+}
+
+/* Style pour chaque lien de pagination */
+.pagination a {
+    color: #007bff; /* Couleur du texte */
+    padding: 10px 15px; /* Espace intérieur des liens */
+    text-decoration: none; /* Supprimer la décoration des liens */
+    border: 1px solid #dee2e6; /* Bordure autour des liens */
+    margin: 0 5px; /* Espacement entre les liens */
+    border-radius: 5px; /* Bordures arrondies */
+    transition: background-color 0.3s; /* Transition pour l'effet de survol */
+}
+
+/* Style pour le lien de pagination actif */
+.pagination a.active {
+    background-color: #007bff; /* Couleur de fond pour le lien actif */
+    color: white; /* Couleur du texte pour le lien actif */
+    border-color: #007bff; /* Couleur de la bordure pour le lien actif */
+}
+
+/* Style pour le lien de pagination au survol */
+.pagination a:hover {
+    background-color: #0056b3; /* Couleur de fond au survol */
+    color: white; /* Couleur du texte au survol */
+}
+
 .login-wrap{
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    top: 300px;
+    bottom: 500px;
     height: 100%;
 }
 .wrapper {
@@ -219,7 +260,7 @@ main{
     width: 100%;
     height: 50px;
     border-bottom: 2px solid ;
-    margin: 30px 0;
+
 }
 
 .input-box label {

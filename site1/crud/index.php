@@ -18,7 +18,7 @@
                 <th>Supprimer</th>
             </tr>
                 <?php
-                require ('../includes/fonctions.php');
+                require ('../includes/functions/fonctions.php');
                 connectdb();
                 $sql = "SELECT * FROM utilisateurs";
                 $rs = connectdb()->prepare($sql);

@@ -1,6 +1,6 @@
 <?php
 // register.php
-include("includes/config.php");
+include("includes/functions/config.php");
 
 $message = '';
 
@@ -93,6 +93,239 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     </div>
 </header>
 <main role="main">
+    <div class="container">
+        <div class="login-box">
+    </div>
+    <div class="content">
+        <div class="main-content">
+            <table>
+                <tr>
+                    <td>
+                        <div class="wrapper-container">
+                            <div class="product-container">
+                                <div class="product-card">
+                                    <div class="product-image">
+                                        <span class=""></span>
+                                        <img src="assets/images/product3.webp" class="product-thumb" alt="">
+                                        <button class="card-btn">Add to Cart</button>
+                                    </div>
+                                    <div class="product-info">
+                                        <h2>Lavasan Orange Jubilee</h2>
+                                        <p class="product-short-des">Lorem ipsum.</p>
+                                        <span class="price">$20</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="wrapper-container">
+                            <div class="product-container">
+                                <div class="product-card">
+                                    <div class="product-image">
+                                        <span class=""></span>
+                                        <img src="assets/images/product3.webp" class="product-thumb" alt="">
+                                        <button class="card-btn">Add to Cart</button>
+                                    </div>
+                                    <div class="product-info">
+                                        <h2>Lavasan Orange Jubilee</h2>
+                                        <p class="product-short-des">Lorem ipsum.</p>
+                                        <span class="price">$20</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="wrapper-container">
+                            <div class="product-container">
+                                <div class="product-card">
+                                    <div class="product-image">
+                                        <span class=""></span>
+                                        <img src="assets/images/product3.webp" class="product-thumb" alt="">
+                                        <button class="card-btn">Add to Cart</button>
+                                    </div>
+                                    <div class="product-info">
+                                        <h2>Lavasan Orange Jubilee</h2>
+                                        <p class="product-short-des">Lorem ipsum.</p>
+                                        <span class="price">$20</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>    
+                </tr>
+                <tr>
+                    <td>
+                        <div class="wrapper-container">
+                            <div class="product-container">
+                                <div class="product-card">
+                                    <div class="product-image">
+                                        <span class=""></span>
+                                        <img src="assets/images/product3.webp" class="product-thumb" alt="">
+                                        <button class="card-btn">Add to Cart</button>
+                                    </div>
+                                    <div class="product-info">
+                                        <h2>Lavasan Orange Jubilee</h2>
+                                        <p class="product-short-des">Lorem ipsum.</p>
+                                        <span class="price">$20</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="wrapper-container">
+                            <div class="product-container">
+                                <div class="product-card">
+                                    <div class="product-image">
+                                        <span class=""></span>
+                                        <img src="assets/images/product3.webp" class="product-thumb" alt="">
+                                        <button class="card-btn">Add to Cart</button>
+                                    </div>
+                                    <div class="product-info">
+                                        <h2>Lavasan Orange Jubilee</h2>
+                                        <p class="product-short-des">Lorem ipsum.</p>
+                                        <span class="price">$20</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="wrapper-container">
+                            <div class="product-container">
+                                <div class="product-card">
+                                    <div class="product-image">
+                                        <span class=""></span>
+                                        <img src="assets/images/product3.webp" class="product-thumb" alt="">
+                                        <button class="card-btn">Add to Cart</button>
+                                    </div>
+                                    <div class="product-info">
+                                        <h2>Lavasan Orange Jubilee</h2>
+                                        <p class="product-short-des">Lorem ipsum.</p>
+                                        <span class="price">$20</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td> 
+                </tr>
+                <tr>
+                    <td>
+                        <div class="wrapper-container">
+                            <div class="product-container">
+                                <div class="product-card">
+                                    <div class="product-image">
+                                        <span class=""></span>
+                                        <img src="assets/images/product3.webp" class="product-thumb" alt="">
+                                        <button class="card-btn">Add to Cart</button>
+                                    </div>
+                                    <div class="product-info">
+                                        <h2>Lavasan Orange Jubilee</h2>
+                                        <p class="product-short-des">Lorem ipsum.</p>
+                                        <span class="price">$20</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="wrapper-container">
+                            <div class="product-container">
+                                <div class="product-card">
+                                    <div class="product-image">
+                                        <span class=""></span>
+                                        <img src="assets/images/product3.webp" class="product-thumb" alt="">
+                                        <button class="card-btn">Add to Cart</button>
+                                    </div>
+                                    <div class="product-info">
+                                        <h2>Lavasan Orange Jubilee</h2>
+                                        <p class="product-short-des">Lorem ipsum.</p>
+                                        <span class="price">$20</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="wrapper-container">
+                            <div class="product-container">
+                                <div class="product-card">
+                                    <div class="product-image">
+                                        <span class=""></span>
+                                        <img src="assets/images/product3.webp" class="product-thumb" alt="">
+                                        <button class="card-btn">Add to Cart</button>
+                                    </div>
+                                    <div class="product-info">
+                                        <h2>Lavasan Orange Jubilee</h2>
+                                        <p class="product-short-des">Lorem ipsum.</p>
+                                        <span class="price">$20</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td> 
+                </tr>
+                <tr>
+                    <td>
+                        <div class="wrapper-container">
+                            <div class="product-container">
+                                <div class="product-card">
+                                    <div class="product-image">
+                                        <span class=""></span>
+                                        <img src="assets/images/product3.webp" class="product-thumb" alt="">
+                                        <button class="card-btn">Add to Cart</button>
+                                    </div>
+                                    <div class="product-info">
+                                        <h2>Lavasan Orange Jubilee</h2>
+                                        <p class="product-short-des">Lorem ipsum.</p>
+                                        <span class="price">$20</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="wrapper-container">
+                            <div class="product-container">
+                                <div class="product-card">
+                                    <div class="product-image">
+                                        <span class=""></span>
+                                        <img src="assets/images/product3.webp" class="product-thumb" alt="">
+                                        <button class="card-btn">Add to Cart</button>
+                                    </div>
+                                    <div class="product-info">
+                                        <h2>Lavasan Orange Jubilee</h2>
+                                        <p class="product-short-des">Lorem ipsum.</p>
+                                        <span class="price">$20</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="wrapper-container">
+                            <div class="product-container">
+                                <div class="product-card">
+                                    <div class="product-image">
+                                        <span class=""></span>
+                                        <img src="assets/images/product3.webp" class="product-thumb" alt="">
+                                        <button class="card-btn">Add to Cart</button>
+                                    </div>
+                                    <div class="product-info">
+                                        <h2>Lavasan Orange Jubilee</h2>
+                                        <p class="product-short-des">Lorem ipsum.</p>
+                                        <span class="price">$20</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
     <div class="login-wrap">
         <div class="wrapper">
             <span class="icon-close">
@@ -145,26 +378,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
                         <p>Already have an account?<a href="#" class="login-link">Login</a></p>
                     </div>
                 </form>
-            </div>
-        </div>
-    </div>
-    <div class="content">
-        <div class="main-content">
-            <div class="wrapper-container">
-                <div class="product-container">
-                    <div class="product-card">
-                        <div class="product-image">
-                            <span class=""></span>
-                            <img src="assets/images/product3.webp" class="product-thumb" alt="">
-                            <button class="card-btn">Add to Cart</button>
-                        </div>
-                        <div class="product-info">
-                            <h2>Lavasan Orange Jubilee</h2>
-                            <p class="product-short-des">Lorem ipsum.</p>
-                            <span class="price">$20</span>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
