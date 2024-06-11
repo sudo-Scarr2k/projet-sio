@@ -97,234 +97,136 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
         <div class="login-box">
     </div>
     <div class="content">
-        <div class="main-content">
-            <table>
-                <tr>
-                    <td>
-                        <div class="wrapper-container">
-                            <div class="product-container">
-                                <div class="product-card">
-                                    <div class="product-image">
-                                        <span class=""></span>
-                                        <img src="assets/images/product3.webp" class="product-thumb" alt="">
-                                        <button class="card-btn">Add to Cart</button>
-                                    </div>
-                                    <div class="product-info">
-                                        <h2>Lavasan Orange Jubilee</h2>
-                                        <p class="product-short-des">Lorem ipsum.</p>
-                                        <span class="price">$20</span>
-                                    </div>
+        <?php
+        // Inclure le fichier de configuration de la base de données
+        include_once 'includes/functions/connectdb_im.php'; // Assurez-vous de mettre le bon chemin vers votre fichier de fonctions
+
+        // Connexion à la base de données
+        $pdo = connectdbim();
+
+        // Chemin du répertoire contenant les images à ajouter
+        $imageDirectory = 'assets/images/';
+
+        // Récupérer la liste des fichiers dans le répertoire
+        $files = scandir($imageDirectory);
+
+        foreach ($files as $file) {
+            // Vérifier si c'est un fichier et s'il a une extension .webp, .jpg, .jpeg, .png ou .gif
+            if (is_file($imageDirectory . $file) && in_array(strtolower(pathinfo($file, PATHINFO_EXTENSION)), ['jpg', 'jpeg', 'png', 'gif', 'webp'])) {
+                // Vérifier si l'image existe déjà dans la base de données pour éviter les doublons
+                $stmt = $pdo->prepare("SELECT COUNT(*) AS num_rows FROM images WHERE name = ?");
+                $stmt->execute([$file]);
+                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                if ($row['num_rows'] == 0) {
+                    // Ajouter l'image dans la base de données
+                    $stmt = $pdo->prepare("INSERT INTO images (name) VALUES (?)");
+                    $stmt->execute([$file]);
+                    // Récupérer l'ID généré pour l'image ajoutée
+                    $imageId = $pdo->lastInsertId();
+                    // Afficher l'ID de l'image ajoutée
+                    echo "L'image $file a été ajoutée avec l'ID $imageId <br>";
+                } else {
+                    echo "L'image $file existe déjà dans la base de données <br>";
+                }
+            }
+        }
+        
+
+        // Nombre total de produits
+        $totalProducts = 20;
+
+        // Nombre de produits par page
+        $productsPerPage = 9;
+
+        // Calculer le nombre total de pages
+        $totalPages = ceil($totalProducts / $productsPerPage);
+
+        // Récupérer le numéro de la page actuelle
+        $currentpage = isset($_GET['page']) ? $_GET['page'] : 1;
+
+        // Calculer l'index de départ pour la requête SQL
+        $start = ($currentpage - 1) * $productsPerPage;
+
+        // Code HTML pour afficher les produits
+        // Code HTML pour afficher les produits
+        // Code HTML pour afficher les produits
+        echo '<div class="content">';
+        echo '<div class="main-content">';
+        echo '<table>';
+        for ($i = 0; $i < $productsPerPage; $i++) {
+            $index = $start + $i;
+            // Si l'index dépasse le nombre total de produits, sortir de la boucle
+            if ($index >= $totalProducts) {
+                break;
+            }
+            // Récupérer l'identifiant de l'image dans la base de données en fonction de son nom
+            $imageExtensions = ['jpg', 'webp', 'png', 'gif']; // Liste des extensions à prendre en compte
+            $imageName = '';
+
+            foreach ($imageExtensions as $extension) {
+                $imageNameAttempt = 'product' . ($index + 1) . ".$extension"; // Nom de l'image avec extension
+                $stmt = $pdo->prepare("SELECT id FROM images WHERE name = ?");
+                $stmt->execute([$imageNameAttempt]);
+                $imageRow = $stmt->fetch(PDO::FETCH_ASSOC);
+                if ($imageRow) {
+                    // Si l'ID est trouvé, récupérer l'ID de l'image
+                    $imageId = $imageRow['id'];
+                    $imageName = $imageNameAttempt;
+                    break;
+                }
+            }
+
+            // Si aucune image n'est trouvée, $imageId sera une chaîne vide
+
+            // Si on a trouvé le nom de l'image, construire le chemin de l'image
+            if ($imageName) {
+                $imagePath = 'assets/images/' . $imageName;
+            } else {
+                // Si aucune image n'a été trouvée, utiliser un chemin par défaut ou afficher un espace réservé
+                $imagePath = 'chemin/par/defaut/ou/image/inexistante.jpg';
+            }
+
+            // Code HTML pour afficher un produit
+            echo '<td>
+                    <div class="wrapper-container">
+                        <div class="product-container">
+                            <div class="product-card">
+                                <div class="product-image">
+                                    <span class=""></span>
+                                    <img src="' . $imagePath . '" class="product-thumb" alt="Product Image">
+                                    <button class="card-btn">Add to Cart</button>
+                                </div>
+                                <div class="product-info">
+                                    <h2>Lavasan Orange Jubilee</h2>
+                                    <p class="product-short-des">Lorem ipsum.</p>
+                                    <span class="price">$20</span>
                                 </div>
                             </div>
                         </div>
-                    </td>
-                    <td>
-                        <div class="wrapper-container">
-                            <div class="product-container">
-                                <div class="product-card">
-                                    <div class="product-image">
-                                        <span class=""></span>
-                                        <img src="assets/images/product3.webp" class="product-thumb" alt="">
-                                        <button class="card-btn">Add to Cart</button>
-                                    </div>
-                                    <div class="product-info">
-                                        <h2>Lavasan Orange Jubilee</h2>
-                                        <p class="product-short-des">Lorem ipsum.</p>
-                                        <span class="price">$20</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="wrapper-container">
-                            <div class="product-container">
-                                <div class="product-card">
-                                    <div class="product-image">
-                                        <span class=""></span>
-                                        <img src="assets/images/product3.webp" class="product-thumb" alt="">
-                                        <button class="card-btn">Add to Cart</button>
-                                    </div>
-                                    <div class="product-info">
-                                        <h2>Lavasan Orange Jubilee</h2>
-                                        <p class="product-short-des">Lorem ipsum.</p>
-                                        <span class="price">$20</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </td>    
-                </tr>
-                <tr>
-                    <td>
-                        <div class="wrapper-container">
-                            <div class="product-container">
-                                <div class="product-card">
-                                    <div class="product-image">
-                                        <span class=""></span>
-                                        <img src="assets/images/product3.webp" class="product-thumb" alt="">
-                                        <button class="card-btn">Add to Cart</button>
-                                    </div>
-                                    <div class="product-info">
-                                        <h2>Lavasan Orange Jubilee</h2>
-                                        <p class="product-short-des">Lorem ipsum.</p>
-                                        <span class="price">$20</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="wrapper-container">
-                            <div class="product-container">
-                                <div class="product-card">
-                                    <div class="product-image">
-                                        <span class=""></span>
-                                        <img src="assets/images/product3.webp" class="product-thumb" alt="">
-                                        <button class="card-btn">Add to Cart</button>
-                                    </div>
-                                    <div class="product-info">
-                                        <h2>Lavasan Orange Jubilee</h2>
-                                        <p class="product-short-des">Lorem ipsum.</p>
-                                        <span class="price">$20</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="wrapper-container">
-                            <div class="product-container">
-                                <div class="product-card">
-                                    <div class="product-image">
-                                        <span class=""></span>
-                                        <img src="assets/images/product3.webp" class="product-thumb" alt="">
-                                        <button class="card-btn">Add to Cart</button>
-                                    </div>
-                                    <div class="product-info">
-                                        <h2>Lavasan Orange Jubilee</h2>
-                                        <p class="product-short-des">Lorem ipsum.</p>
-                                        <span class="price">$20</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </td> 
-                </tr>
-                <tr>
-                    <td>
-                        <div class="wrapper-container">
-                            <div class="product-container">
-                                <div class="product-card">
-                                    <div class="product-image">
-                                        <span class=""></span>
-                                        <img src="assets/images/product3.webp" class="product-thumb" alt="">
-                                        <button class="card-btn">Add to Cart</button>
-                                    </div>
-                                    <div class="product-info">
-                                        <h2>Lavasan Orange Jubilee</h2>
-                                        <p class="product-short-des">Lorem ipsum.</p>
-                                        <span class="price">$20</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="wrapper-container">
-                            <div class="product-container">
-                                <div class="product-card">
-                                    <div class="product-image">
-                                        <span class=""></span>
-                                        <img src="assets/images/product3.webp" class="product-thumb" alt="">
-                                        <button class="card-btn">Add to Cart</button>
-                                    </div>
-                                    <div class="product-info">
-                                        <h2>Lavasan Orange Jubilee</h2>
-                                        <p class="product-short-des">Lorem ipsum.</p>
-                                        <span class="price">$20</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="wrapper-container">
-                            <div class="product-container">
-                                <div class="product-card">
-                                    <div class="product-image">
-                                        <span class=""></span>
-                                        <img src="assets/images/product3.webp" class="product-thumb" alt="">
-                                        <button class="card-btn">Add to Cart</button>
-                                    </div>
-                                    <div class="product-info">
-                                        <h2>Lavasan Orange Jubilee</h2>
-                                        <p class="product-short-des">Lorem ipsum.</p>
-                                        <span class="price">$20</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </td> 
-                </tr>
-                <tr>
-                    <td>
-                        <div class="wrapper-container">
-                            <div class="product-container">
-                                <div class="product-card">
-                                    <div class="product-image">
-                                        <span class=""></span>
-                                        <img src="assets/images/product3.webp" class="product-thumb" alt="">
-                                        <button class="card-btn">Add to Cart</button>
-                                    </div>
-                                    <div class="product-info">
-                                        <h2>Lavasan Orange Jubilee</h2>
-                                        <p class="product-short-des">Lorem ipsum.</p>
-                                        <span class="price">$20</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="wrapper-container">
-                            <div class="product-container">
-                                <div class="product-card">
-                                    <div class="product-image">
-                                        <span class=""></span>
-                                        <img src="assets/images/product3.webp" class="product-thumb" alt="">
-                                        <button class="card-btn">Add to Cart</button>
-                                    </div>
-                                    <div class="product-info">
-                                        <h2>Lavasan Orange Jubilee</h2>
-                                        <p class="product-short-des">Lorem ipsum.</p>
-                                        <span class="price">$20</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="wrapper-container">
-                            <div class="product-container">
-                                <div class="product-card">
-                                    <div class="product-image">
-                                        <span class=""></span>
-                                        <img src="assets/images/product3.webp" class="product-thumb" alt="">
-                                        <button class="card-btn">Add to Cart</button>
-                                    </div>
-                                    <div class="product-info">
-                                        <h2>Lavasan Orange Jubilee</h2>
-                                        <p class="product-short-des">Lorem ipsum.</p>
-                                        <span class="price">$20</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </div>
+                    </div>
+                </td>';
+            // Si nous avons atteint la fin de la rangée, commençons une nouvelle rangée
+            if (($i + 1) % 3 === 0) {
+                echo '</tr><tr>';
+            }
+        }
+        echo '</table>';
+
+        // Afficher les liens de pagination
+        echo '<div class="pagination">';
+        for ($i = 1; $i <= $totalPages; $i++) {
+            // Si c'est la page actuelle, ne pas inclure de lien
+            if ($i == $currentpage) {
+                echo '<span class="active">' . $i . '</span>';
+            } else {
+                echo '<a href="?page=' . $i . '">' . $i . '</a>';
+            }
+        }
+        echo '</div>';
+        echo '</div>';
+        echo '</div>';
+        ?>
+
     </div>
     <div class="login-wrap">
         <div class="wrapper">
