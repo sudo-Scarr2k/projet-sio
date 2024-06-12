@@ -13,7 +13,9 @@ const iconClose = document.querySelector('.icon-close');
     });
     btnPopup.addEventListener('click', function() {
         wrapper.classList.add('active-popup');
+        wrapper.style.pointerEvents = 'auto';
     });
     iconClose.addEventListener('click', function() {
          wrapper.classList.remove('active-popup');
+         wrapper.style.pointerEvents = 'none'
     });
